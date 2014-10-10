@@ -7,8 +7,8 @@ ADD . /code
 
 WORKDIR /code
 
-RUN ["mvn", "compile"]
+RUN ["mvn", "clean", "install"]
 
-RUN ["mvn", "install"]
+EXPOSE 4567
 
-CMD ["java", "-cp", "target/myapp-1.0-SNAPSHOT.jar", "HelloSpark"]
+CMD ["java", "-jar", "target/sparkexample-jar-with-dependencies.jar"]
